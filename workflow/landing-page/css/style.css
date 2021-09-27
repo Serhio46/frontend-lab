@@ -143,6 +143,45 @@ h6 {
   border: 1px solid black;
 }
 
+.resp-nav {
+  max-height: 850px;
+  overflow: hidden;
+  background-color: #2c2c2c;
+  -webkit-transition: max-height 0.4s ease-out;
+  transition: max-height 0.4s ease-out;
+}
+
+.resp-nav__li {
+  border-bottom: 1px solid #474747;
+  padding: 15px 0;
+  margin: 0 25px;
+  list-style-type: none;
+}
+
+.resp-nav__li:last-child {
+  padding-bottom: 25px;
+  border-bottom: none;
+}
+
+.resp-nav__li:first-child {
+  padding-top: 25px;
+}
+
+.resp-nav__li a {
+  color: white;
+  text-decoration: none;
+  font: 400 14px "Roboto Slab";
+  font-size: 1.1em;
+}
+
+.resp-nav__sub {
+  padding-left: 25px;
+}
+
+.closenav {
+  max-height: 0;
+}
+
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
