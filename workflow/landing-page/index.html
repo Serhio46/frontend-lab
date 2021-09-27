@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./css/style.css">
 	<title>Home page</title>
 	<script src="https://kit.fontawesome.com/1cd46cbebf.js" crossorigin="anonymous"></script>
@@ -25,7 +25,7 @@
 		</div>
 		<div class="nav">
 			<div class="nav__btns">
-				<div class="btn"><i class="fas fa-search"></i></div>
+				<div class="btn" id="search"><i class="fas fa-search"></i></div>
 				<div class="btn"><i class="fas fa-chevron-left"></i></div>
 				<div class="btn"><i class="fas fa-chevron-right"></i></div>
 			</div>
@@ -130,7 +130,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="services">
+		<div class="services container">
 			<div class="container">
 				<div class="services__title">
 					<h3>OUR SREVICES</h3>
@@ -139,7 +139,11 @@
 					<div class="item">
 						<div class="item__content">
 							<h4 class="item__title">Quality Matter With Us</h4>
-							<p class="item__text">Artcore is free HTML5 template by template mo. Credit goes to Unsplash for
+							<p class="item__text">Artcore is free HTML5 template by <span class='color-blue'>template</span>
+								<span class="color-green">mo</span>.
+								Credit goes
+								to
+								<a class="alink" href="https://unsplash.com">Unsplash</a> for
 								photos used in this template. You can use this layout for your personal or commercial websites.
 							</p>
 						</div>
@@ -193,7 +197,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="blog">
+		<div class="blog container">
 			<div class="container">
 				<div class="blog__title">AND HERE ARE SOME IMAGES FOR YOU...</div>
 				<div class="blog__story">
@@ -202,7 +206,7 @@
 							<img src="./img/blog1.png" alt="blog2" class="item-story__image">
 							<div class="item-story__img-overlay">
 								<div class="btn btn-image">
-									<a class="fas fa-link" style="color:white" href="#"></a>
+									<a id='icon' class="fas fa-link" href="#"></a>
 								</div>
 							</div>
 						</div>
@@ -258,8 +262,11 @@
 						<div class="item-story__content">
 							<h4 class="item-story__title">Brigette Brown on Umbrellas</h4>
 							<p class="item-story__date">8 November 2084 by Christina</p>
-							<p class="item-story__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias,
-								deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+							<p class="item-story__text"><a href="https://unsplash.com" class="alink">Artcore</a> is free HTML5
+								<span class="color-blue">template</span> <span class="color-green">mo</span>. by
+								template There are total 12 HTML
+								pages. Credit goes to <a href="https://unsplash.com" class="alink">Unsplash</a> for images.
+							</p>
 						</div>
 					</div>
 					<div class="item-story">
@@ -349,8 +356,7 @@
 			<div class="container">
 				<h3 class="footer__title">Contact US</h3>
 				<div class="footer__wrapper">
-					<div class="form">
-						<input action="" id="contact">
+					<form class="form">
 						<p class="form__text">
 							This is an example of a contact page. You can set the contact page in your themes backend and
 							add,
@@ -362,31 +368,31 @@
 							<label for="name">Your name :</label>
 							<input type="text" class="form__input" id="name">
 						</p>
-						<p class="form__field">
+						<div class="form__field">
 							<label for="email">Email Addres :</label>
-							<input type="text" class="form__input" id="email">
-						</p>
+							<input type="email" class="form__input" id="email">
+						</div>
 						<p class="form__field">
 							<label for="phone">Phone Number :</label>
-							<input type="text" class="form__input" id="phone">
+							<input type="number" class="form__input" id="phone">
 						</p>
 						<p class="form__field">
 							<label for="message">Your message :</label>
 							<textarea name="message" class="form__message"></textarea>
 						</p>
 						<input type="submit" class="btn form__submit" value="send message">
-						</form>
-					</div>
+					</form>
 				</div>
 			</div>
-		</footer>
+	</div>
+	</footer>
 
-		<div class="overlay-search close-search">
-			<div class="close-btn">
-				<i class="far fa-times-circle fa-lg"></i>
-			</div>
-			<p>Some text is here...</p>
+	<div class="overlay-search close-search">
+		<div class="close-btn">
+			<i class="far fa-times-circle fa-lg"></i>
 		</div>
+		<p>Some text is here...</p>
+	</div>
 	</div>
 
 

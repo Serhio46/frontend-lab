@@ -336,6 +336,22 @@ h6 {
   margin-bottom: 35px;
 }
 
+.color-green {
+  color: #adff2f;
+}
+
+.color-blue {
+  color: #00bfff;
+}
+
+.alink {
+  color: orange;
+}
+
+.alink:hover {
+  color: black;
+}
+
 .services__title {
   text-transform: uppercase;
   padding: 70px 0;
@@ -418,14 +434,40 @@ h6 {
   width: 80px;
   border: 2px solid #d0d0d0;
   border-radius: 50% 50%;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 
 .item__icon:hover {
+  -webkit-animation-name: rotate;
+          animation-name: rotate;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
   border-color: orange;
-  -webkit-transform: rotate(360deg);
-          transform: rotate(360deg);
+}
+
+.item__icon:hover i {
+  color: orange;
+}
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 .blog__title {
@@ -451,7 +493,6 @@ h6 {
   max-width: 360px;
   background: #ffffff;
   margin-bottom: 30px;
-  cursor: pointer;
 }
 
 .item-story__img {
@@ -466,9 +507,6 @@ h6 {
 .item-story__image {
   display: block;
   width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .item-story__img-overlay {
@@ -500,8 +538,16 @@ h6 {
   border-color: white;
 }
 
+.item-story__img-overlay .btn-image a {
+  color: #ffff;
+}
+
 .item-story__img-overlay .btn-image:hover {
   border-color: orange;
+}
+
+.item-story__img-overlay .btn-image:hover a {
+  color: orange;
 }
 
 .item-story__content {
@@ -510,7 +556,7 @@ h6 {
 
 .item-story__title {
   margin-bottom: 25px;
-  font-size: 21px;
+  font-size: 1.125em;
   cursor: pointer;
 }
 
@@ -519,13 +565,14 @@ h6 {
 }
 
 .item-story__date {
-  font-size: 15px;
+  font-size: 0.8em;
   padding-bottom: 10px;
   color: #778899;
 }
 
 .item-story__text {
   font: 400 14px "Roboto";
+  font-size: 0.875em;
   color: #778899;
   line-height: 1.5em;
 }
@@ -559,6 +606,7 @@ h6 {
 }
 
 .form__field {
+  position: relative;
   margin-bottom: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -595,7 +643,6 @@ h6 {
   position: fixed;
   width: 100%;
   height: 100%;
-  visibility: hidden;
   top: 0;
   left: 0;
   z-index: 1;
@@ -610,6 +657,7 @@ h6 {
   right: 20px;
   color: #ffff;
   font-size: 1.2em;
+  cursor: pointer;
 }
 
 .overlay-search p {
@@ -620,6 +668,59 @@ h6 {
   font-size: 5em;
   color: #ffffff;
   text-align: center;
+}
+
+.close-search {
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+
+.error {
+  visibility: hidden;
+  position: absolute;
+  top: 48px;
+  left: 130px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 5px;
+  -webkit-box-shadow: 5px 5px 5px #d0d0d0;
+          box-shadow: 5px 5px 5px #d0d0d0;
+  padding: 5px;
+  z-index: 45;
+  font: 400 14px "Roboto Slab";
+  color: black;
+}
+
+.error__img {
+  margin-right: 5px;
+  color: orange;
+}
+
+.error span {
+  border-bottom: 10px solid #d0d0d0;
+  left: 55px;
+}
+
+.error span:before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 9px solid #ffffff;
+  left: -7px;
+  top: 1px;
+}
+
+.shown {
+  visibility: visible;
 }
 
 @media (max-width: 1200px) {
@@ -654,7 +755,7 @@ h6 {
     width: 100%;
   }
   .item__content {
-    max-width: 555px;
+    width: 555px;
   }
   .blog__story {
     max-height: 2500px;
@@ -680,8 +781,9 @@ h6 {
   }
 }
 
-@media (max-width: 720px) {
-  .container {
-    max-width: none;
-  }
+/* @media (max-width: 720px) {
+	.container {
+		max-width: none;
+	}
 }
+ */
