@@ -5,9 +5,11 @@
 //Header
 .body {
 	font-size: 16px;
+	background-color: #efefef !important;
 }
 .wraper {
 	background: #efefef;
+	margin: auto;
 }
 .header {
 	display: flex;
@@ -15,6 +17,7 @@
 	justify-content: space-between;
 	padding: 40px 60px;
 	background: #ffffff;
+	font-size: 0.9em;
 	&__logo {
 		display: flex;
 		span {
@@ -80,7 +83,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 30px 60px;
-	background: #efefef;
+	//background: green;
 	&__btns {
 		display: flex;
 	}
@@ -177,6 +180,7 @@
 	position: relative;
 
 	&__img {
+		display: block;
 		object-fit: cover;
 		width: 100%;
 		height: 100%;
@@ -192,8 +196,9 @@
 	}
 	&__info {
 		color: darkblue;
+		font-size: 1.2em;
 		h2 {
-			font-size: 33px;
+			font-size: 1.5em;
 			text-transform: uppercase;
 			margin-bottom: 35px;
 		}
@@ -303,10 +308,12 @@
 //Blog
 
 .blog {
+	max-width: 1140px;
+	margin: 0 auto;
 	&__title {
 		text-transform: uppercase;
 		padding: 70px 0;
-		font-size: 27px;
+		font-size: 1.95em;
 	}
 
 	&__story {
@@ -333,6 +340,7 @@
 	&__image {
 		display: block;
 		width: 100%;
+		max-width: 100%;
 		//height: 100%;
 		//object-fit: cover;
 	}
@@ -373,7 +381,7 @@
 
 	&__title {
 		margin-bottom: 25px;
-		font-size: 1.125em;
+		font-size: 1.5em;
 		cursor: pointer;
 		&:hover {
 			color: orange;
@@ -381,16 +389,16 @@
 	}
 
 	&__date {
-		font-size: 0.8em;
+		font-size: 1.1em;
 		padding-bottom: 10px;
 		color: #778899;
 	}
 
 	&__text {
 		font: 400 14px "Roboto";
-		font-size: 0.875em;
+		font-size: 1.05em;
 		color: #778899;
-		line-height: 1.5em;
+		line-height: 1.45em;
 	}
 }
 
@@ -410,9 +418,10 @@
 }
 .form {
 	width: 540px;
-	font: 400 14px "Roboto Slab";
-	font-size: 16px;
+	font: 400 14px "Roboto";
+	font-size: 1.05em;
 	color: #778899;
+	line-height: 1.45em;
 
 	&__text {
 		padding-bottom: 20px;
@@ -452,6 +461,10 @@
 		margin-left: 150px;
 		font-weight: bold;
 		text-transform: uppercase;
+		&:hover {
+			border: 1px solid orange;
+			color: orange;
+		}
 	}
 }
 
@@ -490,48 +503,6 @@
 
 //ERROR MESSAGE
 
-.error {
-	visibility: hidden;
-	position: absolute;
-	top: 48px;
-	left: 130px;
-	display: inline-flex;
-	align-items: center;
-	background: #ffffff;
-	border: 1px solid #d0d0d0;
-	border-radius: 5px;
-	box-shadow: 5px 5px 5px #d0d0d0;
-	padding: 5px;
-	z-index: 45;
-	font: 400 14px "Roboto Slab";
-	color: black;
-	&__img {
-		margin-right: 5px;
-		color: orange;
-	}
-
-	span {
-		//border-left: 10px solid #d0d0d0;
-		//border-right: 10px solid #d0d0d0;
-		border-bottom: 10px solid #d0d0d0;
-		left: 55px;
-		&:before {
-			content: "";
-			width: 0;
-			height: 0;
-			position: absolute;
-			border-left: 7px solid transparent;
-			border-right: 7px solid transparent;
-			border-bottom: 9px solid #ffffff;
-			left: -7px;
-			top: 1px;
-		}
-	}
-}
-.shown {
-	visibility: visible;
-}
-
 @media (max-width: 1200px) {
 	.container {
 		max-width: 940px;
@@ -548,15 +519,22 @@
 }
 
 @media (max-width: 992px) {
+	.nav {
+		padding: 40px 20px;
+	}
 	.menu__body {
 		display: none;
 	}
 	.menu__icon {
 		display: block;
 	}
+	.main__info {
+		font-size: 1em;
+	}
 	.container {
 		max-width: 720px;
 	}
+
 	.header {
 		padding: 40px 20px;
 	}
@@ -589,9 +567,11 @@
 		}
 	}
 }
-/* @media (max-width: 720px) {
+@media (max-width: 720px) {
 	.container {
 		max-width: none;
 	}
+	.item-story {
+		max-width: 48%;
+	}
 }
- */
