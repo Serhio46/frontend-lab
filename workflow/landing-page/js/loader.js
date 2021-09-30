@@ -21,9 +21,9 @@ const totalCount = 4000;
 
 async function fetchHandler() {
 	try {
-		let gifs = await fetch(`http://api.giphy.com/v1/gifs/search?q=cats&api_key=6yeW4Y3DQYvcNrhsWv8h741VsbL9kwUV&limit=${itemsPerPage}&offset=${currentOffset}`);
-		gifs = await gifs.json();
-		gifs = await (() => gifs.data)();
+		const response = await fetch(`http://api.giphy.com/v1/gifs/search?q=cats&api_key=6yeW4Y3DQYvcNrhsWv8h741VsbL9kwUV&limit=${itemsPerPage}&offset=${currentOffset}`);
+		const respData = await response.json();
+		const gifs = respData.data;
 		changeCart(gifs);
 	}
 	catch (error) {
