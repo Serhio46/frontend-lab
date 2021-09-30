@@ -1,69 +1,78 @@
-//Кнопки пагинации
-let forward = document.querySelector('#forward');
-let back = document.querySelector('#back');
+const forward = document.querySelector('#forward');
+const back = document.querySelector('#back');
 
 forward.addEventListener('click', () => {
-	currentOffset += itemsPerPage;
+	currentOffset += (itemsPerPage - 1);
 	fetchHandler()
 });
 
 back.addEventListener('click', () => {
 	if (currentOffset === 0) {
-		currentOffset = totalCount - itemsPerPage;
+		currentOffset = totalCount - (itemsPerPage - 1);
 	} else {
-		currentOffset -= itemsPerPage;
+		currentOffset -= (itemsPerPage - 1);
 	}
 	fetchHandler()
 });
 
-//Запрос на сервре и изменение контена
-
 let currentOffset = 0;
-let itemsPerPage = 9;
-let totalCount = 4000;//Хотел сюда взять по общему числу картинок(стр.17), но видно ограничения на бесплатной версии, поставил 4000, что бы работало при листании назад сразу!
+const itemsPerPage = 9;
+const totalCount = 4000;
 
 async function fetchHandler() {
 	try {
-		let gifs = await fetch(`http://api.giphy.com/v1/gifs/search?q=cats&api_key=6yeW4Y3DQYvcNrhsWv8h741VsbL9kwUV&limit=${itemsPerPage}&offset=${currentOffset}`)
-			.then((resp) => resp.json())
-			.then((data => {
-				if (totalCount === 0) {
-					//totalCount = data.pagination.total_count; // Вот тут добавлял
-				}
-				return data.data
-			}));
+		let gifs = await fetch(`http://api.giphy.com/v1/gifs/search?q=cats&api_key=6yeW4Y3DQYvcNrhsWv8h741VsbL9kwUV&limit=${itemsPerPage}&offset=${currentOffset}`);
+		gifs = await gifs.json();
+		gifs = await (() => gifs.data)();
 		changeCart(gifs);
 	}
 	catch (error) {
-		console.log('Ошибка загрузки данных')
+		console.log('data loading error')
 	}
 }
 fetchHandler();
 
-//Функция изменения контента
 function changeCart(gifs) {
-	let carts = document.querySelectorAll('.item-story');
+	const blogStory = document.querySelector('.blog__story');
+	blogStory.innerHTML = '';
 
-	let date = new Date();
-	let min = date.getMinutes();
-	let hours = date.getHours();
-	let month = date.getMonth() + 1;
-	let dat = date.getDate();
+	const currentDate = new Date();
+	const minutes = currentDate.getMinutes();
+	const hours = currentDate.getHours();
+	const month = currentDate.getMonth() + 1;
+	const date = currentDate.getDate();
 
 	const change = (current) => {
 		if (current <= 9) {
 			return `0${current}`
-		} return current
+		}
+		return current
 	}
 
-	const currentDay = `${date.getFullYear()}.${change(month)}.${change(dat)} ${change(hours)}:${change(min)}`;
+	const currentDay = `${currentDate.getFullYear()}.${change(month)}.${change(date)} ${change(hours)}:${change(minutes)}`;
 
-	for (let elem = 0; elem < carts.length; elem++) {
-		carts[elem].querySelector('.item-story__image').src = gifs[elem].images.original.url;
-		carts[elem].querySelector('.item-story__title').innerHTML = gifs[elem].title;
-		carts[elem].querySelector('.item-story__date').innerHTML = currentDay;
-		carts[elem].querySelector('a').href = gifs[elem].url;
-	}
+	gifs.forEach((gif) => {
+		const cartItem = document.createElement('div');
+		cartItem.classList.add('item-story');
+		cartItem.innerHTML = `
+			<div class="item-story__img">
+						<img src="${gif.images.original.url}" alt="${gif.title}"
+							class="item-story__image">
+						<div class="item-story__img-overlay">
+							<div class="btn btn-image">
+								<a id='icon' class="fas fa-link" href="${gifs.url}" target="_blank"></a>
+							</div>
+						</div>
+					</div>
+					<div class="item-story__content">
+						<h4 class="item-story__title">${gif.title}</h4>
+						<p class="item-story__date">${currentDay}</p>
+						<p class="item-story__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias,
+							deleniti, id quibusdam aut optio saepe soluta tempore neque voluptatum.</p>
+			</div>
+		`;
+		blogStory.appendChild(cartItem);
+	})
 }
 
 
