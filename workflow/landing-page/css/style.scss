@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500&display=swap");
-//Обнуление стилей
+
 @import "./style_null.scss";
 
-//Header
 .body {
 	font-size: 16px;
 	background-color: #efefef !important;
@@ -26,6 +25,7 @@
 		display: flex;
 	}
 }
+
 .btn {
 	width: 36px;
 	height: 36px;
@@ -39,8 +39,6 @@
 		border: 1px solid black;
 	}
 }
-
-//hiden nav
 
 .resp-nav {
 	max-height: 850px;
@@ -75,13 +73,12 @@
 .closenav {
 	max-height: 0;
 }
-//Navigation
+
 .nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 30px 60px;
-	//background: green;
 	&__btns {
 		display: flex;
 	}
@@ -169,7 +166,6 @@
 	color: orange;
 }
 
-//Main
 .main {
 	display: block;
 	height: 500px;
@@ -207,8 +203,6 @@
 		}
 	}
 }
-
-//services
 
 .color-green {
 	color: #adff2f;
@@ -304,8 +298,6 @@
 	}
 }
 
-//Blog
-
 .blog {
 	max-width: 1140px;
 	margin: 0 auto;
@@ -316,17 +308,27 @@
 	}
 
 	&__story {
+		align-items: center;
 		display: flex;
 		flex-direction: column;
 		flex-wrap: wrap;
-		max-height: 1700px;
+		max-height: 2000px;
+	}
+	&__pagination {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.btn {
+			background: #ffff;
+			margin: 0 20px;
+		}
 	}
 }
+
 .item-story {
 	max-width: 360px;
 	background: #ffffff;
 	margin-bottom: 30px;
-	//cursor: pointer;
 	&__img {
 		position: relative;
 		&:hover {
@@ -340,8 +342,6 @@
 		display: block;
 		width: 100%;
 		max-width: 100%;
-		//height: 100%;
-		//object-fit: cover;
 	}
 	&__img-overlay {
 		position: absolute;
@@ -356,7 +356,6 @@
 		top: 0;
 		background: black;
 		transition: opacity 0.3s, visibility 0.3s ease-out;
-
 		.btn-image {
 			position: relative;
 			margin: 0;
@@ -401,8 +400,6 @@
 	}
 }
 
-//footer
-
 .footer {
 	margin: auto;
 	&__title {
@@ -416,6 +413,7 @@
 		margin-bottom: 100px;
 	}
 }
+
 .form {
 	width: 540px;
 	font: 400 14px "Roboto";
@@ -468,8 +466,6 @@
 	}
 }
 
-//overlay
-
 .overlay-search {
 	position: fixed;
 	width: 100%;
@@ -497,11 +493,10 @@
 		text-align: center;
 	}
 }
+
 .close-search {
 	transform: translateY(-100%);
 }
-
-//ERROR MESSAGE
 
 @media (max-width: 1200px) {
 	.container {
@@ -513,8 +508,11 @@
 			width: 295px;
 		}
 	}
+	.blog__story {
+		max-height: 2000px;
+	}
 	.item-story {
-		max-width: 290px;
+		max-width: 280px;
 	}
 }
 
@@ -548,7 +546,7 @@
 		}
 	}
 	.blog__story {
-		max-height: 2500px;
+		max-height: 3000px;
 	}
 	.item-story {
 		max-width: 345px;
@@ -569,13 +567,11 @@
 		}
 	}
 }
+
 @media (max-width: 720px) {
 	.footer,
 	.blog,
 	.resp-nav {
 		width: 720px;
 	}
-	/* body {
-		width: 980px;
-	} */
 }
