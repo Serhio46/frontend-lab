@@ -2,7 +2,7 @@ export class Cacher {
 
 	withCache(func) {
 
-		const hash = (args) => [].join.call(args);
+		const hash = (arguments) => [].join.call(arguments);
 		const cache = new Map();
 
 		return function () {
