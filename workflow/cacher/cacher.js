@@ -2,15 +2,15 @@ export class Cacher {
 
 	withCache(func) {
 
-		const hash = (arguments) => [].join.call(arguments);
+		const hash = (args) => args.join();
 		const cache = new Map();
 
-		return function () {
-			const key = hash(arguments);
+		return function (...args) {
+			const key = hash(args);
 			if (cache.has(key)) {
 				return cache.get(key);
 			}
-			const result = func(...arguments);
+			const result = func(...args);
 			cache.set(key, result);
 			return result;
 		};
