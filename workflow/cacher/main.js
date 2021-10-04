@@ -5,6 +5,7 @@ const button = document.querySelector('.btn');
 const out = document.querySelector('.result');
 
 const factorial = (n) => (n != 1) ? n * factorial(n - 1) : 1;
+
 const cache = new Cacher();
 const cachedFactorial = cache.withCache(factorial);
 
