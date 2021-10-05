@@ -14,22 +14,26 @@ body {
 	height: 100%;
 }
 .cart {
-	display: flex;
+	display: inline-flex;
 	flex-direction: column;
-	align-items: flex-start;
-	max-width: 400px;
+	align-items: center;
+	max-width: 600px;
 	border: 2px solid green;
 	border-radius: 10px;
 	padding: 20px;
 	min-height: 280px;
 }
-ul {
-	width: 100%;
+
+.cart__nav {
+	/* width: 100%; */
 	list-style: none;
-	margin: 0 auto;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	padding: 0;
+}
+.cart__text {
+	width: 400px;
 }
 li {
 	background: grey;
@@ -38,6 +42,10 @@ li {
 	cursor: pointer;
 	font-size: larger;
 	font-weight: bold;
+	margin-right: 2px;
+}
+li:last-child {
+	margin-right: 0;
 }
 .active,
 li:active {
