@@ -15,6 +15,14 @@ const tabs = [
 		title: 'CSS',
 		content: "CSS («каскадные таблицы стилей») — формальный язык описания внешнего вида документа (веб-страницы), написанного с использованием языка разметки (чаще всего HTML или XHTML). Также может применяться к любым XML-документам, например, к SVG или XUL."
 	},
+	{
+		title: 'CSS',
+		content: "CSS («каскадные таблицы стилей») — формальный язык описания внешнего вида документа (веб-страницы), написанного с использованием языка разметки (чаще всего HTML или XHTML). Также может применяться к любым XML-документам, например, к SVG или XUL."
+	},
+	{
+		title: 'CSS',
+		content: "CSS («каскадные таблицы стилей») — формальный язык описания внешнего вида документа (веб-страницы), написанного с использованием языка разметки (чаще всего HTML или XHTML). Также может применяться к любым XML-документам, например, к SVG или XUL."
+	}
 ];
 
 const cartText = document.querySelector('.cart__text');
@@ -33,6 +41,8 @@ function makeTabs(tabs) {
 		cartNavItem.innerHTML = tabs[i].title;
 		cartNav.appendChild(cartNavItem);
 	}
+	const cartNavWidth = document.querySelector('.cart__nav');
+	cartText.style.width = getComputedStyle(cartNavWidth).width;
 };
 
 makeTabs(tabs);
