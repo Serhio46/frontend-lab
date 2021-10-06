@@ -1,0 +1,108 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background: #dcdcdc;
+	width: 100%;
+	height: 100%;
+}
+textarea {
+	outline: none;
+}
+.header {
+	height: 50px;
+	display: flex;
+	align-items: center;
+	background: grey;
+	padding: 0 20px;
+	box-shadow: 10px 5px 5px;
+	margin-bottom: 5px;
+}
+.logo {
+	color: white;
+	font-size: 20px;
+}
+.wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+	height: 100%;
+}
+.content {
+	display: flex;
+	padding: 10px;
+	height: 100%;
+}
+.content__input {
+	flex: 0.5 1 0%;
+}
+.content__output {
+	flex: 0.5 1 0%;
+}
+.cart {
+	height: 100%;
+	border: 2px solid orange;
+	display: flex;
+	flex-direction: column;
+}
+.cart__header {
+	width: 100%;
+	background-color: orange;
+	height: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cart__header-title {
+	color: white;
+}
+.cart__text {
+	width: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+	flex: 1 0 auto;
+	border: none;
+	background-color: white;
+}
+.content__button {
+	margin: 0 5px;
+}
+.content__btn {
+	height: 50px;
+	background-color: orange;
+	color: white;
+	border: 2px solid grey;
+}
+.output {
+	padding: 10px;
+}
+
+/* ----- */
+
+.object-high {
+	display: flex;
+	flex-direction: column;
+}
+/* .object-high div {
+	padding: 0 5px;
+} */
+.elem-title {
+	display: flex;
+}
+.object-high .object-title {
+	font-weight: 400;
+}
+.primitive {
+	padding-left: 40px;
+}
+.object-low {
+	padding-left: 40px;
+}
+.number {
+	color: green;
+}
+.string {
+	color: red;
+}
+.boolean {
+	color: slateblue;
+}
