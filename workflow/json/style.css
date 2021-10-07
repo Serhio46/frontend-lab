@@ -22,15 +22,22 @@ textarea {
 	color: white;
 	font-size: 20px;
 }
+.main-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
 .wrapper {
 	max-width: 1200px;
 	margin: 0 auto;
-	height: 100%;
+	width: 100%;
+	flex: 1 0 auto;
 }
 .content {
 	display: flex;
 	padding: 10px;
 	height: 100%;
+	box-sizing: border-box;
 }
 .content__input {
 	flex: 0.5 1 0%;
@@ -88,9 +95,11 @@ textarea {
 .elem-title {
 	display: flex;
 }
-.object-high .object-title {
+.object-title {
 	font-weight: 400;
+	padding-right: 6px;
 }
+
 .primitive {
 	padding-left: 40px;
 }
@@ -105,4 +114,24 @@ textarea {
 }
 .boolean {
 	color: slateblue;
+}
+.btn {
+	width: 18px;
+	height: 18px;
+	text-align: center;
+}
+.hidden {
+	display: none;
+}
+.validation {
+	height: 20px;
+	background-color: white;
+	display: none;
+	color: red;
+}
+.validation-on,
+.jsonOn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

@@ -11,33 +11,38 @@
 </head>
 
 <body>
-	<header class="header">
-		<div class="logo">JSON visualizer Online</div>
-	</header>
-	<div class="wrapper">
-		<div class="content">
-			<div class="content__input">
-				<div class="cart">
-					<div class="cart__header">
-						<div class="cart__header-title">JSON String</div>
+	<div class="main-wrapper">
+		<header class="header">
+			<div class="logo">JSON visualizer Online</div>
+		</header>
+		<div class="wrapper">
+			<div class="content">
+				<div class="content__input">
+					<div class="cart">
+						<div class="cart__header">
+							<div class="cart__header-title">JSON String</div>
+						</div>
+						<textarea class="cart__text input"></textarea>
+						<div class="validation validation-on"></div>
 					</div>
-					<textarea class="cart__text input"></textarea>
 				</div>
-			</div>
-			<div class="content__button">
-				<button class="content__btn">Build Tree</button>
-			</div>
-			<div class="content__output">
-				<div class="cart">
-					<div class="cart__header">
-						<div class="cart__header-title">JSON Tree</div>
+				<div class="content__button">
+					<button class="content__btn">Build Tree</button>
+				</div>
+				<div class="content__output">
+					<div class="cart">
+						<div class="cart__header">
+							<div class="cart__header-title">JSON Tree</div>
+						</div>
+						<div type="text" class="cart__text output"></div>
 					</div>
-					<div type="text" class="cart__text output"></div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<script src="./script.js"></script>
+	<!-- <script src="./validation.js"></script> -->
 </body>
 
 </html>
