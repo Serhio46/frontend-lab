@@ -72,12 +72,16 @@ textarea {
 }
 .content__button {
 	margin: 0 5px;
+	display: flex;
+	flex-direction: column;
 }
 .content__btn {
 	height: 50px;
 	background-color: orange;
 	color: white;
 	border: 2px solid grey;
+	margin-bottom: 5px;
+	cursor: pointer;
 }
 .output {
 	padding: 10px;

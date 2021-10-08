@@ -1,15 +1,9 @@
-const json = {
-	"name": "Sergei",
-	"boolean": true,
-	"friends": ["Vasil", "Den", "Gringo"],
-	"object": {
-		"a": "b",
-		"c": "d"
-	},
-	"string": "Hello"
-};
-
 const textArea = document.querySelector('.input');
+const myCodeMirror = CodeMirror.fromTextArea(textArea, {
+	autoCloseBrackets: true
+});
+myCodeMirror.setSize("100%", "100%");
+
 const btn = document.querySelector('.content__btn');
 btn.addEventListener('click', buildTree);
 
@@ -72,7 +66,7 @@ function parse(elems, block, id) {
 }
 
 function buildTree() {
-	//const input = document.querySelector('.input');
+	myCodeMirror.save()
 	const middleResult = JSON.parse(textArea.value);
 	addElem(middleResult);
 	const buttons = document.querySelectorAll('.btn');
@@ -90,38 +84,18 @@ function collaps(id) {
 	changeIcon.classList.toggle('fa-caret-right');
 }
 
-//Табуляция
-textArea.addEventListener('keydown', function (event) {
-	if (event.key === 'Tab') {
-		console.log('tab')
-		event.preventDefault();
-		let value = '';
-		const nextSelectionStart = this.selectionStart + 4;
-
-		value += this.value.substring(0, this.selectionStart);
-		value += '    ';
-		value += this.value.substring(this.selectionEnd);
-
-		this.value = value;
-		this.selectionStart = nextSelectionStart;
-		this.selectionEnd = nextSelectionStart;
-	}
-})
-
-textArea.addEventListener('input', validation);
-
+CodeMirror.on(myCodeMirror, 'change', validation);
 function validation() {
+	myCodeMirror.save()
 	const validation = document.querySelector('.validation');
 	try {
 		const a = JSON.parse(textArea.value);
 		validation.innerHTML = '';
 		validation.classList.remove('jsonOn');
-		console.log(a);
 	} catch (e) {
 		validation.innerHTML = 'Ошибка ввода JSON';
 		validation.classList.add('jsonOn');
 	}
-	//console.log(JSON.parse(textArea.value));
 }
 
 

@@ -11,11 +11,10 @@ function validationForm() {
 		validation.innerHTML = '';
 		validation.classList.remove('jsonOn');
 	}
-
 	const content = textArea.value;
 	const result = content.split('\n').slice(1, -1);
 
-	//ПРоверяем плавающую запятую
+	//Проверяем плавающую запятую
 	const checkComma = result[result.length - 1];
 	if (checkComma[checkComma.length - 1] === ",") {
 		validation.innerHTML = 'Лишняя запятая';
@@ -24,13 +23,10 @@ function validationForm() {
 
 	//Проверяем ключи-значения
 	result.forEach(elem => {
-		console.log(elem);
 		elem.split(':').forEach(elem => {
-			console.log(elem)
 			let str = elem.trim();
 			if (str[str.length - 1] === ',' || str[str.length - 1] === '}') {
 				str = str.slice(0, [str.length - 1]);
-
 			} if (str[0] === '{') {
 				str = str.slice(1).trim();
 			}
