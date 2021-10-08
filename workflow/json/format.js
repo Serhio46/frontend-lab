@@ -1,6 +1,3 @@
-const format = document.querySelector('#format');
-format.addEventListener('click', () => formatInput(textArea))
-
 function formatInput(textForm) {
 	console.log(textForm.value)
 	const arrString = textForm.value.split('\n');

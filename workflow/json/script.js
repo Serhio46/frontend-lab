@@ -27,9 +27,7 @@ function addElem(json) {
 }
 
 function parse(elems, block, id) {
-
 	for (let key in elems) {
-
 		if (typeof elems[key] === 'object') {
 			const object = document.createElement('div');
 			object.classList.add('object-low');
@@ -66,7 +64,7 @@ function parse(elems, block, id) {
 }
 
 function buildTree() {
-	myCodeMirror.save()
+	myCodeMirror.save();
 	const middleResult = JSON.parse(textArea.value);
 	addElem(middleResult);
 	const buttons = document.querySelectorAll('.btn');
@@ -99,5 +97,12 @@ function validation() {
 }
 
 
+const format = document.querySelector('#format');
+format.addEventListener('click', () => formatText(textArea.value))
 
-
+function formatText(arg) {
+	const asd = js_beautify(arg, {
+		"indent_size": 2,
+	});
+	myCodeMirror.setValue(asd);
+}
