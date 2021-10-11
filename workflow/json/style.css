@@ -40,14 +40,18 @@ textarea {
 	box-sizing: border-box;
 }
 .content__input {
-	flex: 0.5 1 0%;
+	flex: 0 0 50%;
+	overflow: hidden; 
+
 }
 .content__output {
-	flex: 0.5 1 0%;
+	flex: 0 0 50%;
+	overflow: hidden; 
 }
 .cart {
 	height: 100%;
 	border: 2px solid orange;
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 }
@@ -93,9 +97,6 @@ textarea {
 	display: flex;
 	flex-direction: column;
 }
-/* .object-high div {
-	padding: 0 5px;
-} */
 .elem-title {
 	display: flex;
 }
@@ -103,7 +104,6 @@ textarea {
 	font-weight: 400;
 	padding-right: 6px;
 }
-
 .primitive {
 	padding-left: 40px;
 }

@@ -1,12 +1,3 @@
-const textArea = document.querySelector('.input');
-const myCodeMirror = CodeMirror.fromTextArea(textArea, {
-	autoCloseBrackets: true
-});
-myCodeMirror.setSize("100%", "100%");
-
-const btn = document.querySelector('.content__btn');
-btn.addEventListener('click', buildTree);
-
 function addElem(json) {
 	let id = 0;
 	const output = document.querySelector('.output');
@@ -42,17 +33,18 @@ function parse(elems, block, id) {
 function addObject(objectJson, key, id, block) {
 	const object = document.createElement('div');
 	object.classList.add('object-low');
-	const objectJsonLength = Object.keys(objectJson).length;
+	const objectJsonKeysCount = Object.keys(objectJson).length;
 	object.innerHTML = `
 		<div class="elem-title">
 			<div class="btn" id='${id}'><i class="fas fa-caret-down" id='${id}'></i></div>
 			<div class="object-title">${key}</div>
-			<div>${Array.isArray(objectJson) ? `[${objectJsonLength}]` : `{${objectJsonLength}}`}</div >
+			<div>${Array.isArray(objectJson) ? `[${objectJsonKeysCount}]` : `{${objectJsonKeysCount}}`}</div >
 		</div >
 		<div class="obj-content" id='${id}'></div>
 		`;
 	block.appendChild(object);
-	const newBlock = Array.from(document.querySelectorAll('.obj-content')).pop();
+	const nestedBlocks = document.querySelectorAll('.obj-content');
+	const newBlock = nestedBlocks[nestedBlocks.length - 1];
 	return newBlock;
 }
 
@@ -61,28 +53,29 @@ function addPrimitive(block, objectJson, key) {
 	primitive.classList.add('primitive');
 	primitive.innerHTML = `${key} : <span class="type">${objectJson}</span>`;
 	block.appendChild(primitive);
-	const type = Array.from(document.querySelectorAll('.type')).pop();
-	switch (typeof objectJson) {
-		case 'number':
-			type.classList.add('number');
-			break;
-		case 'string':
-			type.classList.add('string');
-			break;
-		case 'boolean':
-			type.classList.add('boolean');
-	}
+	const primitives = document.querySelectorAll('.type');
+	const lastPrimitive = primitives[primitives.length - 1];
+	lastPrimitive.classList.add(typeof objectJson);
 };
+
+const textArea = document.querySelector('.input');
+const myCodeMirror = CodeMirror.fromTextArea(textArea, {
+	autoCloseBrackets: true
+});
+myCodeMirror.setSize("100%", "100%");
 
 function buildTree() {
 	myCodeMirror.save();
 	const middleResult = JSON.parse(textArea.value);
 	addElem(middleResult);
-	const buttons = document.querySelectorAll('.btn');
-	Array.from(buttons).forEach(elem => {
+	const toggleButtons = document.querySelectorAll('.btn');
+	toggleButtons.forEach(elem => {
 		elem.addEventListener('click', () => collapse(elem.id));
 	});
 }
+
+const btn = document.querySelector('.content__btn');
+btn.addEventListener('click', buildTree);
 
 function collapse(id) {
 	const blocks = document.querySelectorAll('.obj-content');
@@ -92,8 +85,6 @@ function collapse(id) {
 	changeBlock.classList.toggle('hidden');
 	changeIcon.classList.toggle('fa-caret-right');
 }
-
-CodeMirror.on(myCodeMirror, 'change', validation);
 
 function validation() {
 	myCodeMirror.save();
@@ -108,8 +99,7 @@ function validation() {
 	}
 }
 
-const format = document.querySelector('#format');
-format.addEventListener('click', formatText)
+CodeMirror.on(myCodeMirror, 'change', validation);
 
 function formatText() {
 	const inputText = js_beautify(textArea.value, {
@@ -117,3 +107,6 @@ function formatText() {
 	});
 	myCodeMirror.setValue(inputText);
 }
+
+const format = document.querySelector('#format');
+format.addEventListener('click', formatText);
