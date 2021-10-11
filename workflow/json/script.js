@@ -12,14 +12,15 @@ function addElem(json) {
 	const output = document.querySelector('.output');
 	const object = document.createElement('div');
 	object.classList.add('object-high');
+	const jsonLength = Object.keys(json).length;
 	object.innerHTML = `
-			<div class="elem-title">
-				<div class="btn" id='${id}' ><i class="fas fa-caret-down" id='${id}'></i></div>
-				<div class="object-title">BigObject</div>
-				<div>{${Object.keys(json).length}}</div>
-			</div>
-			<div class="obj-content" id='${id}'></div>
-			`;
+		<div class="elem-title">
+			<div class="btn" id='${id}' ><i class="fas fa-caret-down" id='${id}'></i></div>
+			<div class="object-title">BigObject</div>
+			<div>{${jsonLength}}</div>
+		</div>
+		<div class="obj-content" id='${id}'></div>
+		`;
 	id++;
 	output.appendChild(object);
 	const objHeigh = document.querySelector('.obj-content');
@@ -28,40 +29,50 @@ function addElem(json) {
 
 function parse(elems, block, id) {
 	for (let key in elems) {
-		if (typeof elems[key] === 'object') {
-			const object = document.createElement('div');
-			object.classList.add('object-low');
-			object.innerHTML = `
-				<div class="elem-title">
-					<div class="btn" id='${id}'><i class="fas fa-caret-down" id='${id}'></i></div>
-					<div class="object-title">${key}</div>
-					<div>${Array.isArray(elems[key]) ? `[${Object.keys(elems[key]).length}]` : `{${Object.keys(elems[key]).length}}`}</div >
-				</div >
-				<div class="obj-content" id='${id}'></div>
-				`;
-			id++;
-			block.appendChild(object);
-			const newBlock = Array.from(document.querySelectorAll('.obj-content')).pop();
-			parse(elems[key], newBlock);
+		const objectJson = elems[key];
+		if (typeof objectJson === 'object') {
+			const newBlock = addObject(objectJson, key, id, block);
+			parse(objectJson, newBlock, ++id);
 		} else {
-			const primitive = document.createElement('div');
-			primitive.classList.add('primitive');
-			primitive.innerHTML = `${key} : <span class="type">${elems[key]}</span>`;
-			block.appendChild(primitive);
-			const type = Array.from(document.querySelectorAll('.type')).pop();
-			switch (typeof elems[key]) {
-				case 'number':
-					type.classList.add('number');
-					break;
-				case 'string':
-					type.classList.add('string');
-					break;
-				case 'boolean':
-					type.classList.add('boolean');
-			}
+			addPrimitive(block, objectJson, key);
 		}
 	}
 }
+
+function addObject(objectJson, key, id, block) {
+	const object = document.createElement('div');
+	object.classList.add('object-low');
+	const objectJsonLength = Object.keys(objectJson).length;
+	object.innerHTML = `
+		<div class="elem-title">
+			<div class="btn" id='${id}'><i class="fas fa-caret-down" id='${id}'></i></div>
+			<div class="object-title">${key}</div>
+			<div>${Array.isArray(objectJson) ? `[${objectJsonLength}]` : `{${objectJsonLength}}`}</div >
+		</div >
+		<div class="obj-content" id='${id}'></div>
+		`;
+	block.appendChild(object);
+	const newBlock = Array.from(document.querySelectorAll('.obj-content')).pop();
+	return newBlock;
+}
+
+function addPrimitive(block, objectJson, key) {
+	const primitive = document.createElement('div');
+	primitive.classList.add('primitive');
+	primitive.innerHTML = `${key} : <span class="type">${objectJson}</span>`;
+	block.appendChild(primitive);
+	const type = Array.from(document.querySelectorAll('.type')).pop();
+	switch (typeof objectJson) {
+		case 'number':
+			type.classList.add('number');
+			break;
+		case 'string':
+			type.classList.add('string');
+			break;
+		case 'boolean':
+			type.classList.add('boolean');
+	}
+};
 
 function buildTree() {
 	myCodeMirror.save();
@@ -69,40 +80,40 @@ function buildTree() {
 	addElem(middleResult);
 	const buttons = document.querySelectorAll('.btn');
 	Array.from(buttons).forEach(elem => {
-		elem.addEventListener('click', () => collaps(elem.id));
+		elem.addEventListener('click', () => collapse(elem.id));
 	});
 }
 
-function collaps(id) {
+function collapse(id) {
 	const blocks = document.querySelectorAll('.obj-content');
 	const icons = document.querySelectorAll('.fa-caret-down');
-	const change = Array.from(blocks).find(elem => elem.id === id);
+	const changeBlock = Array.from(blocks).find(elem => elem.id === id);
 	const changeIcon = Array.from(icons).find(elem => elem.id === id);
-	change.classList.toggle('hidden');
+	changeBlock.classList.toggle('hidden');
 	changeIcon.classList.toggle('fa-caret-right');
 }
 
 CodeMirror.on(myCodeMirror, 'change', validation);
+
 function validation() {
-	myCodeMirror.save()
+	myCodeMirror.save();
 	const validation = document.querySelector('.validation');
 	try {
 		const a = JSON.parse(textArea.value);
 		validation.innerHTML = '';
 		validation.classList.remove('jsonOn');
 	} catch (e) {
-		validation.innerHTML = 'Ошибка ввода JSON';
+		validation.innerHTML = 'JSON input error';
 		validation.classList.add('jsonOn');
 	}
 }
 
-
 const format = document.querySelector('#format');
-format.addEventListener('click', () => formatText(textArea.value))
+format.addEventListener('click', formatText)
 
-function formatText(arg) {
-	const asd = js_beautify(arg, {
+function formatText() {
+	const inputText = js_beautify(textArea.value, {
 		"indent_size": 2,
 	});
-	myCodeMirror.setValue(asd);
+	myCodeMirror.setValue(inputText);
 }
