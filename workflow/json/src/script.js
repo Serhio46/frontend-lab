@@ -1,4 +1,9 @@
 import "./style.scss";
+import * as CodeMirror from "codemirror";
+import "codemirror/lib/codemirror.css";
+import "codemirror/mode/css/css";
+import "codemirror/addon/edit/closebrackets";
+import js_beautify from "js-beautify";
 
 function addElem(json) {
 	let id = 0;
