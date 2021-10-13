@@ -1,3 +1,5 @@
+import "./style.scss";
+
 function addElem(json) {
 	let id = 0;
 	const output = document.querySelector('.output');
