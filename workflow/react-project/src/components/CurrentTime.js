@@ -1,21 +1,18 @@
 import { useState, useEffect, useCallback } from 'react';
+const moment = require('moment');
+console.log(moment().format('kk:mm:ss'));
 
 function CurrentTime() {
 
 	const [currentTime, setCurrenTime] = useState(timeMaker);
 
 	function timeMaker() {
-		const currentDate = new Date();
-		const hours = currentDate.getHours();
-		const minutes = currentDate.getMinutes();
-		const seconds = currentDate.getSeconds();
-		const cahgeTime = (unit) => (unit < 9) ? `0${unit}` : unit;
-		return `${cahgeTime(hours)}:${cahgeTime(minutes)}:${cahgeTime(seconds)}`;
+		return moment().format('kk:mm:ss');
 	}
 
 	const getCurrentTime = useCallback(() => {
 		const updateTime = timeMaker();
-		setCurrenTime(updateTime)
+		setCurrenTime(updateTime);
 	}, []);
 
 	useEffect(() => {
@@ -28,5 +25,4 @@ function CurrentTime() {
 		</>
 	);
 }
-
 export default CurrentTime;
