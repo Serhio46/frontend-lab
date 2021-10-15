@@ -1,0 +1,26 @@
+.slider{
+	height: 618px;
+	display: flex;
+	align-items: center;
+	position: relative; 
+	/* overflow: hidden; */
+}
+.slider-wrapper{
+	border: 3px solid #555555;
+	height: 200px;
+	width: 550px;
+	position: relative; 
+}
+.slider__text{
+	font-size: 32px;
+	width: 541px;
+	padding: 50px;
+	box-sizing: border-box;
+	/* position: absolute;  */
+	transition: all ease 1s;
+	left: 0;
+	top: 0;
+}
+.slider__text-hidden{
+	opacity: 0.2;
+} 

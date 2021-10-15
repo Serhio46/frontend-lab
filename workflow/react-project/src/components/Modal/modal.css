@@ -1,0 +1,58 @@
+.modal{
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	pointer-events: none;
+	transition: 0.5s;
+	
+}
+.modal__form{
+	height: 709px;
+	width: 600px;
+	border-radius: 10px;
+	background: #E0E0E0;
+ 	transform: scale(0.5); 
+	transition: 0.5s;
+}
+
+.modal.active{
+	opacity: 1;
+	pointer-events: all;
+}
+
+.modal__form.active{
+	transform: scale(1);
+}
+
+.modal__header{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 80px;
+	background: #4CAF50;
+	border-radius: 10px 10px 0px 0px;
+	padding: 0 16px 0 30px;
+	color: #CDD6CF;
+	font-size: 32px;
+	font-family: 'Quicksand';
+}
+.modal__close{
+	cursor: pointer;
+}
+
+.modal__content{
+	padding: 30px;
+	text-align: center;
+}
+.modal__content-title{
+	font-family: "Rochester";
+	font-size: 32px;
+	color: #000000;
+}
