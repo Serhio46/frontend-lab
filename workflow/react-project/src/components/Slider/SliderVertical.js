@@ -12,7 +12,7 @@ function SliderVertical({ phrases }) {
 		slidesToScroll: 1,
 		vertical: true,
 		verticalSwiping: true,
-		beforeChange: (currentSlide, nextSlide) => nextSlide === 3 ? setActiveIndex(0) : setActiveIndex(nextSlide + 1),
+		beforeChange: (currentSlide, nextSlide) => nextSlide === phrases.length - 1 ? setActiveIndex(0) : setActiveIndex(nextSlide + 1),
 		autoplay: true,
 		autoplaySpeed: 2000
 	}
