@@ -13,7 +13,7 @@ function Header({ setActive }) {
 				<div className='header__text'>Cocktail App</div>
 			</div>
 			<div className='header__register' onClick={() => setActive(true)}>
-				<Button />
+				<Button action={'Getting started'} />
 			</div>
 		</div>
 	);

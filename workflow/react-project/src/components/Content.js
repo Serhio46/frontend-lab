@@ -1,4 +1,4 @@
-import coctail from '../image/coctail.png';
+import cocktail from '../image/coctail.png';
 import SliderVertical from './Slider/SliderVertical';
 
 function Content({ setActive, phrases }) {
@@ -10,7 +10,7 @@ function Content({ setActive, phrases }) {
 				<div className='content__main'>
 					<SliderVertical phrases={phrases} />
 					<div className='content__image' onClick={() => setActive(true)}>
-						<img width={573} height={598} src={coctail} alt='coctail'></img>
+						<img src={cocktail} alt='coctail'></img>
 						<div className='content__image-text'>Press on glass to get a random cocktail</div>
 					</div>
 				</div>

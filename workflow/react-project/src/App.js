@@ -9,7 +9,10 @@ const phrases = [
 	"“I’m on a whisky diet. I’ve lost three days already.” — Tommy Cooper",
 	"“THIS WAS AN ALCOHOLIC COMA” - after a week vacation in Marmaris",
 	"asdasd asdas sada pfpfpgfg; dsdfsdf dfdfdsd d ffsdf sdfsdf sdfsdf f"
-]
+];
+
+const modalAuthTitle = "Authentication";
+const modalAuthContentTitle = "Sign In";
 
 function App() {
 
@@ -19,7 +22,12 @@ function App() {
 		<div >
 			<Header setActive={setModalActive} />
 			<Content phrases={phrases} setActive={setModalActive} />
-			<Modal active={modalActive} setActive={setModalActive} title={"Authentication"} contentTitle={"Sign In"} />
+			<Modal
+				active={modalActive}
+				setActive={setModalActive}
+				title={modalAuthTitle}
+				contentTitle={modalAuthContentTitle}
+			/>
 		</div>
 	);
 }

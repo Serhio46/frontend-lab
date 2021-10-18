@@ -1,6 +1,6 @@
-function Button() {
+function Button({ action }) {
 	return (
-		<button className='btn-register'>Get Started</button>
+		<button className='btn-register'>{action}</button>
 	);
 }
 export default Button;

@@ -65,6 +65,8 @@ body {
 }
 .content__image img{
 	cursor: pointer;
+	width: 573px;
+	height: 598px;
 }
 .content__image-text{
 	position: relative;
