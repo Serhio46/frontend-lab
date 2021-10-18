@@ -8,7 +8,7 @@ const phrases = [
 	"Everybody should believe in something I believe I’ll have another drink",
 	"“I’m on a whisky diet. I’ve lost three days already.” — Tommy Cooper",
 	"“THIS WAS AN ALCOHOLIC COMA” - after a week vacation in Marmaris",
-	"asdasd asdas sada pfpfpgfg; dsdfsdf dfdfdsd d f"
+	"asdasd asdas sada pfpfpgfg; dsdfsdf dfdfdsd d ffsdf sdfsdf sdfsdf f"
 ]
 
 function App() {
@@ -18,10 +18,9 @@ function App() {
 	return (
 		<div >
 			<Header setActive={setModalActive} />
-			<Content setActive={setModalActive} phrases={phrases} />
+			<Content phrases={phrases} setActive={setModalActive} />
 			<Modal active={modalActive} setActive={setModalActive} title={"Authentication"} contentTitle={"Sign In"} />
 		</div>
 	);
 }
-
 export default App;

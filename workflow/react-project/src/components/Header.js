@@ -3,10 +3,7 @@ import { faCocktail } from '@fortawesome/free-solid-svg-icons';
 
 import Button from './Button';
 
-
-
 function Header({ setActive }) {
-
 	return (
 		<div className='header'>
 			<div className='header__logo'>

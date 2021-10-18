@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 const moment = require('moment');
-console.log(moment().format('kk:mm:ss'));
 
 function CurrentTime() {
 
