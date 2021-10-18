@@ -11,8 +11,8 @@ const phrases = [
 	"asdasd asdas sada pfpfpgfg; dsdfsdf dfdfdsd d ffsdf sdfsdf sdfsdf f"
 ];
 
-const modalAuthTitle = "Authentication";
-const modalAuthContentTitle = "Sign In";
+const MODAL_AUTH_TITLE = "Authentication";
+const MODAL_AUTH_CONTENT_TITLE = "Sign In";
 
 function App() {
 
@@ -25,8 +25,8 @@ function App() {
 			<Modal
 				active={modalActive}
 				setActive={setModalActive}
-				title={modalAuthTitle}
-				contentTitle={modalAuthContentTitle}
+				title={MODAL_AUTH_TITLE}
+				contentTitle={MODAL_AUTH_CONTENT_TITLE}
 			/>
 		</div>
 	);
