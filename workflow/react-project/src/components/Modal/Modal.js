@@ -8,8 +8,7 @@ import classNames from 'classnames';
 
 function Modal({ randomCocktail }) {
 
-	const title = randomCocktail.title;
-	const { contentTitle, imgPath, instruction, ingredirntQuantity } = randomCocktail.cocktail;
+	const { cocktail: { contentTitle, imgPath, instruction, ingredirntQuantity }, title } = randomCocktail;
 
 	const modalActive = useSelector(({ modalReducer }) => modalReducer.visible);
 	const dispatch = useDispatch();

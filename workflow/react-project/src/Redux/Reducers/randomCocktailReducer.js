@@ -18,17 +18,16 @@ const randomCocktailReducer = (state = initial, action) => {
 				const quantityKey = `strMeasure${i}`;
 				const ingredient = action.payload[ingredientKey];
 				const quantity = action.payload[quantityKey];
-				if ((ingredient !== null && ingredient !== '') && quantity !== null) {
-					console.log("asdasd")
-					const quantityArr = quantity.split(' ');
+				if (ingredient && quantity) {
+					const quantities = quantity.split(' ');
 					const ingredirntQuantityItem = {
 						ingredient: ingredient,
-						quantity: quantityArr[0],
-						unit: quantityArr[1],
+						quantity: quantities[0],
+						unit: quantities[1],
 						id: i,
 					}
 					ingredients.push(ingredirntQuantityItem);
-				} else if ((ingredient !== null && ingredient !== '')) {
+				} else if (ingredient) {
 					const ingredirntQuantityItem = {
 						ingredient: ingredient,
 						quantity: null,
