@@ -1,3 +1,16 @@
+::-webkit-scrollbar {
+	width: 6px;
+}
+::-webkit-scrollbar-track{
+	background: #C4C4C4;
+	border-radius: 6px;
+}
+::-webkit-scrollbar-thumb {
+	background: #555555;
+	border-radius: 6px;
+
+}
+
 .modal{
 	height: 100%;
 	width: 100%;
@@ -30,7 +43,6 @@
 .modal__form.active{
 	transform: scale(1);
 }
-
 .modal__header{
 	display: flex;
 	align-items: center;
@@ -46,13 +58,78 @@
 .modal__close{
 	cursor: pointer;
 }
-
+.modal__content-scroll{
+	padding: 10px;
+	height: 629px;
+	box-sizing: border-box;
+	position: relative;
+}
 .modal__content{
-	padding: 30px;
+	padding: 20px;
 	text-align: center;
+	height: 609px;
+	overflow:auto;
+	box-sizing: border-box;
+}
+.modal__content-favorite{
+	position: absolute;
+	top: 30px;
+	right: 20px;
 }
 .modal__content-title{
 	font-family: "Rochester";
 	font-size: 32px;
 	color: #000000;
+	margin-bottom: 50px;
+}
+.modal__content-image{
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+}
+.modal__content-img{
+	max-width: 100%;
+	margin-bottom: 50px; 
+}
+.modal__content-recipe{
+	font-family: "Quicksand";
+}
+.modal__content-recipe p{
+	font-size: 22px;
+	text-align: start;
+	padding-left: 30px;
+}
+.modal__content-table{
+	padding-bottom: 30px;
+}
+.modal__content-table table{
+	border-spacing: 5px;
+	border-collapse: collapse;
+	
+	text-align: center;
+	width: 540px;
+}
+.modal__content-table tr{
+	font-size: 16px;
+	border-bottom: 1px solid #000000;
+}
+tr:last-child{
+	border-bottom: none;
+}
+td{
+	border-right: 1px solid #000000;	
+}
+td:last-child {
+	border-right: none;
+	width: 70px;
+}
+td:first-child{
+	width: 70px;
+}
+td:nth-child(3){
+	width: 70px;
+}
+.modal__content-recipetext{
+	text-align: start;
+	font-size: 16px;
 }

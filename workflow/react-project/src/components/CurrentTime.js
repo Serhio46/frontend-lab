@@ -1,8 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
+
 const moment = require('moment');
 
 function CurrentTime() {
-
 	const [currentTime, setCurrenTime] = useState(timeMaker);
 
 	function timeMaker() {
@@ -20,7 +20,7 @@ function CurrentTime() {
 
 	return (
 		<>
-			<p>{currentTime} </p>
+			<p>{currentTime}</p>
 		</>
 	);
 }
