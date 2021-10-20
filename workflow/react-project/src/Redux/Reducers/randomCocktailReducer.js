@@ -1,59 +1,56 @@
 const initial = {
-	title: 'Random Coctail',
+	title: 'Random Cocktail',
 	cocktail: {},
 }
 
 const randomCocktailReducer = (state = initial, action) => {
 	if (action.type === 'GET-COCKTAIL') {
 
-		const currentContentTitle = action.payload.strDrink;
-		const currentImgPath = action.payload.strDrinkThumb;
-		const currentInstruction = action.payload.strInstructions;
-		const ingrQnty = getIngredients();
-		const currentId = action.payload.idDrink;
+		const contentTitle = action.payload.strDrink;
+		const imgPath = action.payload.strDrinkThumb;
+		const instruction = action.payload.strInstructions;
+		const ingredirntQuantity = getIngredients();
 
 		function getIngredients() {
 			const ingredients = []
 			for (let i = 1; i <= 15; i++) {
-				const ingredient = `strIngredient${i}`;
-				const quantity = `strMeasure${i}`;
-				const ing = action.payload[ingredient];
-				const qnty = action.payload[quantity];
-				if (ing !== null) {
-					if (qnty) {
-						const qntyArr = qnty.split(' ');
-						const ingrQnty = {
-							ingredient: ing,
-							quantity: qntyArr[0],
-							unit: qntyArr[1],
-							id: i,
-						}
-						ingredients.push(ingrQnty);
-					} else {
-						const ingrQnty = {
-							ingredient: ing,
-							quantity: null,
-							unit: null,
-							id: i,
-						}
-						ingredients.push(ingrQnty);
+				const ingredientKey = `strIngredient${i}`;
+				const quantityKey = `strMeasure${i}`;
+				const ingredient = action.payload[ingredientKey];
+				const quantity = action.payload[quantityKey];
+				if ((ingredient !== null && ingredient !== '') && quantity !== null) {
+					console.log("asdasd")
+					const quantityArr = quantity.split(' ');
+					const ingredirntQuantityItem = {
+						ingredient: ingredient,
+						quantity: quantityArr[0],
+						unit: quantityArr[1],
+						id: i,
 					}
+					ingredients.push(ingredirntQuantityItem);
+				} else if ((ingredient !== null && ingredient !== '')) {
+					const ingredirntQuantityItem = {
+						ingredient: ingredient,
+						quantity: null,
+						unit: null,
+						id: i,
+					}
+					ingredients.push(ingredirntQuantityItem);
 				}
 			}
 			return ingredients;
 		}
 
 		const cocktail = {
-			contentTitle: currentContentTitle,
-			imgPath: currentImgPath,
-			instruction: currentInstruction,
-			ingrQnty: ingrQnty,
-			id: currentId,
+			contentTitle,
+			imgPath,
+			instruction,
+			ingredirntQuantity,
 		}
 
 		return {
 			...state,
-			cocktail: cocktail,
+			cocktail,
 		}
 	};
 	return state;

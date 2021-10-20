@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import Content from './components/Content';
-import ModalAPI from './components/Modal/ModalAPI';
+import ModalContainer from './components/Modal/ModalContainer';
 
 const phrases = [
 	"Everybody should believe in something I believe I’ll have another drink",
@@ -14,7 +14,7 @@ function App() {
 		<div >
 			<Header />
 			<Content phrases={phrases} />
-			<ModalAPI />
+			<ModalContainer />
 		</div>
 	);
 }

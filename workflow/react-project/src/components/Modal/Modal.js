@@ -3,12 +3,13 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { closeModal } from '../../Redux/Actions/modalAction';
 import { useSelector, useDispatch } from 'react-redux';
+import classNames from 'classnames';
 
 
-function Modal({ randomCoctail }) {
+function Modal({ randomCocktail }) {
 
-	const title = randomCoctail.title;
-	const { contentTitle, imgPath, instruction, ingrQnty } = randomCoctail.cocktail;
+	const title = randomCocktail.title;
+	const { contentTitle, imgPath, instruction, ingredirntQuantity } = randomCocktail.cocktail;
 
 	const modalActive = useSelector(({ modalReducer }) => modalReducer.visible);
 	const dispatch = useDispatch();
@@ -18,8 +19,8 @@ function Modal({ randomCoctail }) {
 	}
 
 	return (
-		<div className={modalActive ? 'modal active' : 'modal'} onClick={handleCloseModal}>
-			<div className={modalActive ? 'modal__form active' : 'modal__form'} onClick={(event) => event.stopPropagation()}>
+		<div className={classNames('modal', { active: modalActive })} onClick={handleCloseModal}>
+			<div className={classNames('modal__form', { active: modalActive })} onClick={(event) => event.stopPropagation()}>
 				<div className='modal__header'>
 					<div className='modal__title'>{title}</div>
 					<div className='modal__close' onClick={handleCloseModal}>
@@ -46,7 +47,7 @@ function Modal({ randomCoctail }) {
 											<td>Qnty</td>
 											<td></td>
 										</tr>
-										{ingrQnty && ingrQnty.map((item, index) => {
+										{ingredirntQuantity && ingredirntQuantity.map((item, index) => {
 											return <tr key={item.id}>
 												<td>{index + 1}</td>
 												<td>{item.ingredient}</td>

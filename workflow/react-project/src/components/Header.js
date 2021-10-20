@@ -5,9 +5,11 @@ import { useDispatch } from 'react-redux';
 
 import Button from './Button';
 
-function Header({ setActive }) {
+function Header() {
 
 	const dispatch = useDispatch();
+
+	const getStart = () => dispatch(showModal());
 
 	return (
 		<div className='header'>
@@ -17,7 +19,7 @@ function Header({ setActive }) {
 				</div>
 				<div className='header__text'>Cocktail App</div>
 			</div>
-			<div className='header__register' onClick={() => dispatch(showModal())}>
+			<div className='header__register' onClick={getStart}>
 				<Button action={'Getting started'} />
 			</div>
 		</div>
