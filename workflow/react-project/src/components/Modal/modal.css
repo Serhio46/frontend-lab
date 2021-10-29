@@ -58,14 +58,14 @@
 .modal__close{
 	cursor: pointer;
 }
-.modal__content-scroll{
+ .modal__content-scroll{
 	padding: 10px;
 	height: 629px;
 	box-sizing: border-box;
 	position: relative;
-}
+} 
 .modal__content{
-	padding: 20px;
+	padding: 30px;
 	text-align: center;
 	height: 609px;
 	overflow:auto;
@@ -80,7 +80,7 @@
 	font-family: "Rochester";
 	font-size: 32px;
 	color: #000000;
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 }
 .modal__content-image{
 	width: 200px;
@@ -133,3 +133,5 @@ td:nth-child(3){
 	text-align: start;
 	font-size: 16px;
 }
+
+

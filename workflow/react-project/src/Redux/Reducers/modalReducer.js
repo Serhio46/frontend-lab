@@ -1,4 +1,5 @@
 const initialState = {
+	auth: false,
 	visible: false,
 }
 
@@ -13,6 +14,11 @@ const modalReducer = (state = initialState, action) => {
 			return {
 				...state,
 				visible: false,
+			};
+		case 'SET_AUTH':
+			return {
+				...state,
+				auth: action.payload,
 			}
 		default:
 			return state;

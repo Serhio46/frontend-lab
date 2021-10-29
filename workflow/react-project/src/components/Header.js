@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail } from '@fortawesome/free-solid-svg-icons';
-import { showModal } from '../Redux/Actions/modalAction';
+import { openAuth } from '../Redux/Actions/modalAction';
 import { useDispatch } from 'react-redux';
 
 import Button from './Button';
@@ -9,7 +9,9 @@ function Header() {
 
 	const dispatch = useDispatch();
 
-	const getStart = () => dispatch(showModal());
+	const getStart = () => {
+		dispatch(openAuth(true));
+	}
 
 	return (
 		<div className='header'>
@@ -20,7 +22,7 @@ function Header() {
 				<div className='header__text'>Cocktail App</div>
 			</div>
 			<div className='header__register' onClick={getStart}>
-				<Button action={'Getting started'} />
+				<Button>Getting started</Button>
 			</div>
 		</div>
 	);
