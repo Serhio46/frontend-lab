@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;600;700&family=Quicksand:wght@400;500&family=Rochester&display=swap');
 
-html {
+
+html body {
 	font-family:"Asap";
-}
-body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: #CDD6CF ;
 	height: 100%;
+	padding: 0;
+	margin: 0;
 }
-
 .header{
 	display: flex;
 	justify-content: space-between;
@@ -19,6 +19,7 @@ body {
 	padding: 0 30px;
 	background: #4CAF50;
 	margin-bottom: 60px;
+	z-index: 1000;
 }
 .header__logo{
 	display: flex;
@@ -40,6 +41,28 @@ body {
 	background: none;
 	color: #ffffff;
 	cursor: pointer;
+}
+.user-block{
+	width: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 35px;
+	color: #ffffff;
+}
+.user-block-link{
+	cursor: pointer;
+	text-decoration: none;
+	color: #ffffff; 
+}
+.toast-header{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	visibility: hidden;
+}
+#search:hover + .toast-header{
+	visibility: visible;
 }
 .wrapper{
 	max-width: 1440px;

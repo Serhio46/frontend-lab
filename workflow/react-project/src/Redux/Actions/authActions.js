@@ -15,14 +15,16 @@ export const setUser = (user) => ({
 
 export const signUp = (user) => async (dispatch) => {
 	const responce = await axios.post(`${BASE_URL}/sign-up`, user);
-	console.log(responce);
 	dispatch(setIsAuth(true));
 	dispatch(setUser(user));
 	dispatch(closeAuth(false));
 }
 
 export const signIn = (user) => async (dispatch) => {
-	console.log('in')
 	const responce = await axios.post(`${BASE_URL}/sign-in`, user);
-	console.log(responce)
+	const userData = { ...user };
+	sessionStorage.setItem('jwtToken', responce.data.token);
+	dispatch(setIsAuth(true));
+	dispatch(setUser(userData));
+	dispatch(closeAuth(false));
 }

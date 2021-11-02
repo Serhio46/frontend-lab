@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import './modal.css';
+import CastomToast from '../castomToast/CastomToast'
 
 function ModalCoctail({ randomCocktail }) {
 
@@ -11,6 +12,9 @@ function ModalCoctail({ randomCocktail }) {
 			<div className='modal__content'>
 				<div className='modal__content-favorite' >
 					<FontAwesomeIcon icon={faStar} size="2x" color="#1B5E20" />
+				</div>
+				<div className="toast">
+					<CastomToast title={"Save to Liked"} component="modal" />
 				</div>
 				<div className='modal__content-title'>{contentTitle}</div>
 				<div className='modal__content-image'>

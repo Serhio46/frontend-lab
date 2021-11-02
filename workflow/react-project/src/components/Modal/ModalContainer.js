@@ -6,8 +6,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { loadRandomCocktail } from '../../Redux/Actions/randomCocktailAction';
 import ModalLayout from './ModalLayout';
 
-
-
 function ModalContainer() {
 
 	const randomCocktail = useSelector(({ randomCocktailReducer }) => randomCocktailReducer);

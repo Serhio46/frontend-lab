@@ -2,7 +2,14 @@ import Slider from 'react-slick';
 import './slider.css';
 import { useState } from 'react';
 
-function SliderVertical({ phrases }) {
+const phrases = [
+	"Everybody should believe in something I believe I’ll have another drink",
+	"“I’m on a whisky diet. I’ve lost three days already.” — Tommy Cooper",
+	"“THIS WAS AN ALCOHOLIC COMA” - after a week vacation in Marmaris",
+	"asdasd asdas sada pfpfpgfg; dsdfsdf dfdfdsd d ffsdf sdfsdf sdfsdf f"
+];
+
+function SliderVertical() {
 
 	const changeActiveIndex = (...args) => args[1] === phrases.length - 1
 		? setActiveIndex(0)

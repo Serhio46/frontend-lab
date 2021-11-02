@@ -100,9 +100,9 @@ function ModalSignIn() {
 					</>}
 				</div>
 				{isSignIn ?
-					<p className="signin-quest">Don't have an account? <a href='#' className="signin-quest-link" onClick={toogleAuth}>Sign up</a></p>
+					<p className="signin-quest">Don't have an account? <span className="signin-quest-link" onClick={toogleAuth}>Sign up</span></p>
 					:
-					<p className="signin-quest">Already signed up? <a href='#' className="signin-quest-link" onClick={toogleAuth}>Go to login</a></p>
+					<p className="signin-quest">Already signed up? <span className="signin-quest-link" onClick={toogleAuth}>Go to login</span></p>
 				}
 				<Button type='submit' btnSignin='btn-signin'>{isSignIn ? 'Sign In' : 'Sign Up'}</Button>
 			</form>
