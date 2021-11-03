@@ -1,6 +1,9 @@
 const intialState = {
 	isAuth: false,
-	error: '',
+	notification: {
+		type: '',
+		message: '',
+	},
 	isLoading: false,
 	user: {}
 }
@@ -18,6 +21,15 @@ const authReducer = (state = intialState, action) => {
 				...state,
 				user: action.payload
 			}
+		case "SET_NOTIFICATION": {
+			return {
+				...state,
+				notification: {
+					type: action.payload.type,
+					message: action.payload.message,
+				}
+			}
+		}
 		default:
 			return state;
 	}

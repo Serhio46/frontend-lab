@@ -3,7 +3,6 @@ import ModalContainer from './components/Modal/ModalContainer';
 import AppRouter from './components/AppRouter';
 
 
-
 function App() {
 	return (
 		<div >

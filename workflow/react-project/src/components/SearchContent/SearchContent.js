@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SearchCard from '../SearchCard/SearchCard';
 import { filteredCocktails, sortCocktailsBy } from '../../Redux/Actions/filterAction'
 import { useDispatch, useSelector } from 'react-redux';
+import FilterToast from '../FilterToast';
 
 function SearchContent() {
 
@@ -46,9 +47,14 @@ function SearchContent() {
 				</div>
 			</form>
 			<div className={styles.filterItem}>
-				{sortedCocktails && sortedCocktails.map((drink) => <SearchCard alcoholic={drink.alcoholic} title={drink.title} imgPath={drink.imgPath} key={drink.key} />)}
+				{sortedCocktails && sortedCocktails.map((drink) => <SearchCard
+					alcoholic={drink.alcoholic}
+					title={drink.title}
+					imgPath={drink.imgPath}
+					key={drink.key} />
+				)}
 			</div>
-
+			<FilterToast />
 		</div>
 	)
 }

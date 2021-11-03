@@ -1,6 +1,10 @@
 const initialState = {
 	sortedCocktails: [],
 	sortBy: '',
+	error: {
+		type: '',
+		message: '',
+	}
 }
 
 const filterReducer = (state = initialState, action) => {
@@ -14,6 +18,14 @@ const filterReducer = (state = initialState, action) => {
 			return {
 				...state,
 				sortBy: action.payload,
+			}
+		case "SET_ERROR":
+			return {
+				...state,
+				error: {
+					type: action.payload.type,
+					message: action.payload.message,
+				}
 			}
 		default:
 			return state;

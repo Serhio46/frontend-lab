@@ -4,7 +4,6 @@ import { showModal } from '../Redux/Actions/modalAction';
 import { useDispatch } from 'react-redux';
 
 
-
 function Content() {
 
 	const dispatch = useDispatch();
@@ -19,7 +18,9 @@ function Content() {
 					<SliderVertical />
 					<div className='content__image' onClick={showRandomCocktail}>
 						<img src={cocktail} alt='cocktail'></img>
-						<div className='content__image-text'>Press on glass to get a random cocktail</div>
+						<div className='content__image-text-block'>
+							<div className='content__image-text'>Press on glass to get a random cocktail</div>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -26,7 +26,7 @@
 	box-sizing: border-box;
 	background: #CDD6CF;
 	outline: none;
-	height: 48px;
+	height: 47px;
 }
 .inputImg{
 	color: #1B5E20;
@@ -78,14 +78,22 @@
 	opacity: 0;
 	transition: 0.2s;
 }
-
 .radio input[type=radio]:checked + label:after{
 	opacity: 1;
 } 
-
 .filterItem {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-evenly;
 }
 
+@media (max-width: 720px) {
+	.inputBlock {
+		max-width: 520px;
+	}
+}
+@media (max-width: 540px) {
+	.inputBlock {
+		max-width: 380px;
+	}
+}

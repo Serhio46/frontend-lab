@@ -1,13 +1,13 @@
 .slider{
-	height: 618px;
+	height: 605px;
 	display: flex;
 	align-items: center;
-	position: relative; 
-	overflow: hidden; 
+	overflow: hidden;
+	width: 550px;
 }
 .slider-wrapper{
-	width: 550px;
-	position: relative; 
+	width: 100%;
+	height: auto;
 }
 .slider__text{
 	font-size: 32px;
@@ -21,3 +21,14 @@
 .slider__text-hidden{
 	opacity: 0.2;
 } 
+
+@media(max-width: 1200px){
+	.slider__text{
+		font-size: 30px;
+	}
+}
+@media(max-width: 540px){
+	.slider{
+		width: 100%;
+	}
+}

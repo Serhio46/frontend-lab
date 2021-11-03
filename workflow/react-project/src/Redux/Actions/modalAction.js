@@ -1,3 +1,5 @@
+import { setNotification } from './authActions';
+
 export const showModal = () => ({
 	type: 'SHOW-MODAL'
 })
@@ -13,10 +15,17 @@ export const setAuth = (payload) => ({
 
 export const openAuth = (payload) => async (dispatch) => {
 	await dispatch(setAuth(payload));
+	dispatch(setNotification({
+		type: '',
+		message: ""
+	}))
 	dispatch(showModal());
 }
 
 export const closeAuth = (payload) => async (dispatch) => {
 	await dispatch(closeModal());
-	dispatch(setAuth(payload));
+	setTimeout(() => {
+		dispatch(setAuth(payload));
+	}, 600)
+
 }

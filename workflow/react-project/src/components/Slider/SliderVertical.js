@@ -39,7 +39,6 @@ function SliderVertical() {
 			</div>
 		</div>
 	);
-
 }
 
 export default SliderVertical;

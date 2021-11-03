@@ -13,18 +13,50 @@ export const setUser = (user) => ({
 	payload: user,
 })
 
+export const setNotification = (payload) => ({
+	type: 'SET_NOTIFICATION',
+	payload
+})
+
 export const signUp = (user) => async (dispatch) => {
-	const responce = await axios.post(`${BASE_URL}/sign-up`, user);
-	dispatch(setIsAuth(true));
-	dispatch(setUser(user));
-	dispatch(closeAuth(false));
+	try {
+		const responce = await axios.post(`${BASE_URL}/sign-up`, user);
+		console.log(responce);
+		dispatch(setIsAuth(true));
+		dispatch(setUser(user));
+		dispatch(closeAuth(false));
+		dispatch(setNotification({
+			type: 'success',
+			message: "Account Created Successfully!"
+		}));
+	} catch (error) {
+		console.log(error)
+		dispatch(closeAuth(false));
+		dispatch(setNotification({
+			type: 'error',
+			message: "Failed to create account!",
+		}));
+	}
 }
 
 export const signIn = (user) => async (dispatch) => {
-	const responce = await axios.post(`${BASE_URL}/sign-in`, user);
-	const userData = { ...user };
-	sessionStorage.setItem('jwtToken', responce.data.token);
-	dispatch(setIsAuth(true));
-	dispatch(setUser(userData));
-	dispatch(closeAuth(false));
+
+	try {
+		const responce = await axios.post(`${BASE_URL}/sign-in`, user);
+		sessionStorage.setItem('jwtToken', responce.data.token);
+		dispatch(setIsAuth(true));
+		dispatch(setUser(user));
+		await dispatch(closeAuth(false));
+		dispatch(setNotification({
+			type: 'success',
+			message: "You are signin!"
+		}));
+	} catch (error) {
+		console.log(error);
+		dispatch(closeAuth(false));
+		dispatch(setNotification({
+			type: 'error',
+			message: "Failed to signin account!"
+		}));
+	}
 }

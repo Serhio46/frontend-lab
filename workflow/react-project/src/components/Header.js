@@ -1,13 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCocktail, faSearch, faHouseUser } from '@fortawesome/free-solid-svg-icons';
-import { faStar } from '@fortawesome/free-regular-svg-icons';
+import { faCocktail } from '@fortawesome/free-solid-svg-icons';
 import { openAuth } from '../Redux/Actions/modalAction';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { RoutesName } from '../routes/index.js'
+import { RoutesName } from '../routes/index.js';
 
+import Navigation from './Navigation';
 import Button from './Button';
-import CastomToast from './castomToast/CastomToast';
 
 function Header() {
 
@@ -30,25 +29,12 @@ function Header() {
 			</Link>
 			{isAuth
 				?
-				<div className="user-block">
-					<Link className="user-block-link" id="search" to={RoutesName.SEARCH}>
-						<FontAwesomeIcon icon={faSearch} />
-					</Link>
-					<Link className="user-block-link" to={RoutesName.FAVORITES}>
-						<FontAwesomeIcon icon={faStar} />
-					</Link>
-					<Link className="user-block-link" to={RoutesName.HOME}>
-						<FontAwesomeIcon icon={faHouseUser} />
-					</Link>
-				</div>
+				<Navigation />
 				:
 				<div className='header__register' onClick={getStart}>
 					<Button>Getting started</Button>
 				</div>
 			}
-			<div className='toast-header'>
-				<CastomToast title={"search"} component={'header'} />
-			</div>
 		</div>
 	);
 }
