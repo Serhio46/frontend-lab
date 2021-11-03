@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setNotification } from '../Redux/Actions/authActions';
+
 import Content from '../components/Content';
 import AuthToast from '../components/AuthToast';
-import { useSelector, useDispatch } from 'react-redux';
-import { setNotification } from '../Redux/Actions/authActions'
 
 
 function Home() {

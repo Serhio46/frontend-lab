@@ -10,7 +10,7 @@ function SearchCard({ title, imgPath, alcoholic }) {
 	return (
 		<div className={styles.wrapper}>
 			<div className={styles.cardimg}>
-				<img src={imgPath || cocktail} alt="cocktail"></img>
+				<img src={imgPath || cocktail} alt="cocktail" />
 			</div>
 			<p className={styles.cardTitle}>{title}</p>
 			<div className={styles.cardInfo}>

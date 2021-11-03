@@ -2,8 +2,6 @@ import { useSelector } from 'react-redux';
 import { Route, Switch, Redirect } from "react-router";
 import { privateRoutes, publicRoutes, RoutesName } from "../routes/index";
 
-
-
 const AppRouter = () => {
 
 	const { isAuth } = useSelector(({ authReducer }) => authReducer);

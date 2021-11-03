@@ -18,7 +18,7 @@ function ModalContainer() {
 
 	return (
 		<>
-			<ModalLayout title={'Authentication'}>{auth ? <ModalSignIn /> : <Modal randomCocktail={randomCocktail} />}</ModalLayout>
+			<ModalLayout title={auth ? 'Authentication' : 'Random Coctail'}>{auth ? <ModalSignIn /> : <Modal randomCocktail={randomCocktail} />}</ModalLayout>
 		</>
 	);
 }

@@ -1,14 +1,12 @@
 import { useState } from 'react';
-import Input from '../input/Input';
-import Button from '../Button';
 import { useDispatch } from 'react-redux';
 import { signUp, signIn } from '../../Redux/Actions/authActions'
-
 import { useFormik } from 'formik';
 
 import './modal.css';
 import './modalSignIn.css';
-
+import Input from '../input/Input';
+import Button from '../Button';
 
 function ModalSignIn() {
 	const [isSignIn, setSignIn] = useState(true);
@@ -104,7 +102,7 @@ function ModalSignIn() {
 					:
 					<p className="signin-quest">Already signed up? <span className="signin-quest-link" onClick={toogleAuth}>Go to login</span></p>
 				}
-				<Button type='submit' btnSignin='btn-signin'>{isSignIn ? 'Sign In' : 'Sign Up'}</Button>
+				<Button type='submit' btnSignin={true}>{isSignIn ? 'Sign In' : 'Sign Up'}</Button>
 			</form>
 		</div>
 	);

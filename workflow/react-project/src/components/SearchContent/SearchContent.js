@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import styles from './Search.module.css';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import SearchCard from '../SearchCard/SearchCard';
-import { filteredCocktails, sortCocktailsBy } from '../../Redux/Actions/filterAction'
+import { filteredCocktails, sortCocktailsBy } from '../../Redux/Actions/filterAction';
 import { useDispatch, useSelector } from 'react-redux';
+
 import FilterToast from '../FilterToast';
+import styles from './Search.module.css';
+import SearchCard from '../SearchCard/SearchCard';
 
 function SearchContent() {
 

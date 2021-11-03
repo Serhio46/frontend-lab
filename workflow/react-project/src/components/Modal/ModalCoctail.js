@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import './modal.css';
-import CastomToast from '../castomToast/CastomToast'
+import CastomToast from '../castomToast/CastomToast';
 
 function ModalCoctail({ randomCocktail }) {
 

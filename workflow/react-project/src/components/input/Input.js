@@ -9,10 +9,10 @@ import { faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 function Input({ type, placeholder, label, name, onChange, value, onBlur }) {
 
 	const [onDown, setOnDown] = useState(false);
-	const [type1, setType] = useState(type);
+	const [typeInput, setTypeInput] = useState(type);
 
 	const onMouseDown = () => {
-		!onDown ? setType('text') : setType('password');
+		!onDown ? setTypeInput('text') : setTypeInput('password');
 		setOnDown(!onDown);
 	}
 
@@ -22,7 +22,7 @@ function Input({ type, placeholder, label, name, onChange, value, onBlur }) {
 			<div className="input-block">
 				<input
 					className="input-form"
-					type={type1}
+					type={typeInput}
 					placeholder={placeholder}
 					name={name}
 					id={name}

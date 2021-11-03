@@ -21,7 +21,6 @@ export const setNotification = (payload) => ({
 export const signUp = (user) => async (dispatch) => {
 	try {
 		const responce = await axios.post(`${BASE_URL}/sign-up`, user);
-		console.log(responce);
 		dispatch(setIsAuth(true));
 		dispatch(setUser(user));
 		dispatch(closeAuth(false));
@@ -30,7 +29,6 @@ export const signUp = (user) => async (dispatch) => {
 			message: "Account Created Successfully!"
 		}));
 	} catch (error) {
-		console.log(error)
 		dispatch(closeAuth(false));
 		dispatch(setNotification({
 			type: 'error',
@@ -40,19 +38,17 @@ export const signUp = (user) => async (dispatch) => {
 }
 
 export const signIn = (user) => async (dispatch) => {
-
 	try {
 		const responce = await axios.post(`${BASE_URL}/sign-in`, user);
 		sessionStorage.setItem('jwtToken', responce.data.token);
 		dispatch(setIsAuth(true));
 		dispatch(setUser(user));
-		await dispatch(closeAuth(false));
+		dispatch(closeAuth(false));
 		dispatch(setNotification({
 			type: 'success',
 			message: "You are signin!"
 		}));
 	} catch (error) {
-		console.log(error);
 		dispatch(closeAuth(false));
 		dispatch(setNotification({
 			type: 'error',

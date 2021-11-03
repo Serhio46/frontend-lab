@@ -39,14 +39,12 @@ const randomCocktailReducer = (state = initial, action) => {
 			}
 			return ingredients;
 		}
-
 		const cocktail = {
 			contentTitle,
 			imgPath,
 			instruction,
 			ingredirntQuantity,
 		}
-
 		return {
 			...state,
 			cocktail,
