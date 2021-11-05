@@ -12,12 +12,16 @@ function ModalLayout({ title, children }) {
 	const dispatch = useDispatch();
 
 	const handleCloseModal = () => {
-		dispatch(closeAuth(false))
+		dispatch(closeAuth(false));
 	}
 
 	return (
-		<div className={classNames('modal', { active: modalActive })} onClick={handleCloseModal}>
-			<div className={classNames('modal__form', { active: modalActive })} onClick={(event) => event.stopPropagation()}>
+		<div className={classNames('modal', { active: modalActive })} onMouseDown={(e) => {
+			handleCloseModal();
+			e.preventDefault();
+			return false;
+		}}  >
+			<div className={classNames('modal__form', { active: modalActive })} onMouseDown={(event) => event.stopPropagation()} >
 				<div className='modal__header'>
 					<div className='modal__title'>{title}</div>
 					<div className='modal__close' onClick={handleCloseModal}>

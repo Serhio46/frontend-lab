@@ -27,9 +27,7 @@ function AuthToast() {
 	}, [type])
 
 	return (
-		<>
-			<ToastContainer />
-		</>
+		<ToastContainer />
 	);
 }
 

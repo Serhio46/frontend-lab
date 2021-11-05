@@ -1,6 +1,7 @@
 const initialState = {
 	auth: false,
 	visible: false,
+	showCard: false,
 }
 
 const modalReducer = (state = initialState, action) => {
@@ -19,6 +20,11 @@ const modalReducer = (state = initialState, action) => {
 			return {
 				...state,
 				auth: action.payload,
+			}
+		case 'SET_SHOW_CARD':
+			return {
+				...state,
+				showCard: action.payload,
 			}
 		default:
 			return state;

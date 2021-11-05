@@ -1,13 +1,11 @@
 import { showModal } from '../Redux/Actions/modalAction';
 import { useDispatch } from 'react-redux';
-
 import cocktail from '../image/cocktail.png';
 import SliderVertical from './Slider/SliderVertical';
 
 function Content() {
 
 	const dispatch = useDispatch();
-
 	const showRandomCocktail = () => dispatch(showModal());
 
 	return (

@@ -20,7 +20,7 @@ export const setNotification = (payload) => ({
 
 export const signUp = (user) => async (dispatch) => {
 	try {
-		const responce = await axios.post(`${BASE_URL}/sign-up`, user);
+		await axios.post(`${BASE_URL}/sign-up`, user);
 		dispatch(setIsAuth(true));
 		dispatch(setUser(user));
 		dispatch(closeAuth(false));

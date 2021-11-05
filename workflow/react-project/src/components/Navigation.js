@@ -4,7 +4,6 @@ import { faSearch, faHouseUser } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
 import { RoutesName } from '../routes/index.js';
-import { useState } from 'react';
 
 import classNames from 'classnames';
 import CastomToast from './castomToast/CastomToast';
@@ -28,12 +27,7 @@ const menuItems = [
 	}]
 
 
-function Navigation() {
-
-	const [active, setActive] = useState(2);
-	const onSelectLink = index => {
-		setActive(index);
-	}
+function Navigation({ onSelectLink, active }) {
 
 	return (
 		<div className="user-block">
@@ -41,9 +35,9 @@ function Navigation() {
 				return (
 					<Link onClick={() => onSelectLink(index)} className={classNames('user-block-link', { 'link-active': active === index })} to={item.to} key={index}>
 						<FontAwesomeIcon className={'link-icon'} icon={item.icon} />
-						{<div className='toast-header'>
+						<div className='toast-header'>
 							<CastomToast title={item.title} component={'header'} />
-						</div>}
+						</div>
 					</Link>
 				)
 			})}

@@ -1,10 +1,11 @@
 const initialState = {
+	initialCoctails: [],
 	sortedCocktails: [],
-	sortBy: '',
+	sortBy: 'drinkName',
 	error: {
 		type: '',
 		message: '',
-	}
+	},
 }
 
 const filterReducer = (state = initialState, action) => {
@@ -26,6 +27,11 @@ const filterReducer = (state = initialState, action) => {
 					type: action.payload.type,
 					message: action.payload.message,
 				}
+			}
+		case "SET_INITIAL":
+			return {
+				...state,
+				initialCoctails: action.payload,
 			}
 		default:
 			return state;

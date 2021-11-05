@@ -13,6 +13,11 @@ export const setAuth = (payload) => ({
 	payload,
 })
 
+export const setShowCard = (payload) => ({
+	type: 'SET_SHOW_CARD',
+	payload,
+})
+
 export const openAuth = (payload) => async (dispatch) => {
 	await dispatch(setAuth(payload));
 	dispatch(setNotification({
@@ -27,5 +32,6 @@ export const closeAuth = (payload) => async (dispatch) => {
 	setTimeout(() => {
 		dispatch(setAuth(payload));
 	}, 600)
-
 }
+
+

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCocktail } from '@fortawesome/free-solid-svg-icons';
 import { openAuth } from '../Redux/Actions/modalAction';
@@ -10,6 +11,12 @@ import Button from './Button';
 
 function Header() {
 
+	const [active, setActive] = useState(2);
+
+	const onSelectLink = index => {
+		setActive(index);
+	}
+
 	const dispatch = useDispatch();
 	const { isAuth } = useSelector(({ authReducer }) => authReducer);
 
@@ -19,7 +26,7 @@ function Header() {
 
 	return (
 		<div className='header'>
-			<Link className="user-block-link" to={RoutesName.HOME}>
+			<Link onClick={() => onSelectLink(2)} className="user-block-link" to={RoutesName.HOME}>
 				<div className='header__logo'>
 					<div className='header__image'>
 						<FontAwesomeIcon icon={faCocktail} />
@@ -29,7 +36,7 @@ function Header() {
 			</Link>
 			{isAuth
 				?
-				<Navigation />
+				<Navigation active={active} onSelectLink={onSelectLink} />
 				:
 				<div className='header__register' onClick={getStart}>
 					<Button>Getting started</Button>
