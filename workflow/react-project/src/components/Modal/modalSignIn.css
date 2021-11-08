@@ -1,0 +1,29 @@
+.signin-form{
+	display: flex;
+	flex-direction: column;
+	height: 480px;
+}
+.btn-signin{
+	border: none;
+	box-sizing: border-box;
+	background: #4CAF50;
+	align-self: flex-end;
+}
+.signin-quest{
+	font-family: 'Asap';
+	font-size: 16px;
+	margin-top: 5px;
+	flex: 1 0 auto;
+}
+.signin-quest-link{
+	color:#1B5E20;
+	font-weight: 600;
+	cursor: pointer;
+}
+.modal__content-hiiden{
+	overflow: hidden;
+}
+.signin-form-control{
+	margin-bottom: 30px;
+	text-align:start;
+}

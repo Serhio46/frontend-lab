@@ -1,0 +1,34 @@
+.slider{
+	height: 605px;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+	width: 550px;
+}
+.slider-wrapper{
+	width: 100%;
+	height: auto;
+}
+.slider__text{
+	font-size: 32px;
+	width: 541px;
+	padding: 50px;
+	box-sizing: border-box;
+	transition: all ease 0.5s;
+	left: 0;
+	top: 0;
+}
+.slider__text-hidden{
+	opacity: 0.2;
+} 
+
+@media(max-width: 1200px){
+	.slider__text{
+		font-size: 30px;
+	}
+}
+@media(max-width: 540px){
+	.slider{
+		width: 100%;
+	}
+}
