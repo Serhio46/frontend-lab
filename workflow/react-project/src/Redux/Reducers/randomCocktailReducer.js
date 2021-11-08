@@ -1,11 +1,10 @@
 const initial = {
-	title: 'Random Cocktail',
+	isLoading: false,
 	cocktail: {},
 }
 
 const randomCocktailReducer = (state = initial, action) => {
 	if (action.type === 'GET-COCKTAIL') {
-
 		const contentTitle = action.payload.strDrink;
 		const imgPath = action.payload.strDrinkThumb;
 		const instruction = action.payload.strInstructions;
@@ -39,17 +38,20 @@ const randomCocktailReducer = (state = initial, action) => {
 			}
 			return ingredients;
 		}
-
 		const cocktail = {
 			contentTitle,
 			imgPath,
 			instruction,
 			ingredirntQuantity,
 		}
-
 		return {
 			...state,
 			cocktail,
+		}
+	} else if (action.type === 'SET_ISLOADING') {
+		return {
+			...state,
+			isLoading: action.payload,
 		}
 	};
 	return state;

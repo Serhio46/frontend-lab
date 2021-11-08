@@ -1,24 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:wght@400;600;700&family=Quicksand:wght@400;500&family=Rochester&display=swap');
-
-html {
+html body {
 	font-family:"Asap";
-}
-body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: #CDD6CF ;
 	height: 100%;
+	padding: 0;
+	margin: 0;
 }
-
 .header{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 70px;
-	padding: 0 30px;
+	padding: 0 60px 0 30px;
 	background: #4CAF50;
 	margin-bottom: 60px;
+	z-index: 1000;
 }
 .header__logo{
 	display: flex;
@@ -41,6 +40,32 @@ body {
 	color: #ffffff;
 	cursor: pointer;
 }
+.user-block{
+	width: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 35px;
+	color: #ffffff;
+}
+.user-block-link{
+	position: relative;
+	cursor: pointer;
+	text-decoration: none;
+	color: #ffffff; 
+}
+.link-active{
+	color: #1B5E20;
+}
+.toast-header{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	visibility: hidden;
+}
+.user-block .link-icon:first-child:hover + .toast-header{
+	visibility: visible;
+}  
 .wrapper{
 	max-width: 1440px;
 	margin: 0 auto;
@@ -60,21 +85,71 @@ body {
 	align-items: center;
 }
 
-.conten__image{
-	position: absolute;
+.content__image{
+	width: 573px;
 }
 .content__image img{
 	cursor: pointer;
-	width: 573px;
-	height: 598px;
+	object-fit: cover;
+	width: 100%;
+}
+.content__image-text-block{
+	display: inline-block;
+	position: relative;
+	left: 110px;
+	top: -70px;
 }
 .content__image-text{
-	position: relative;
+	cursor: pointer;
 	transform: rotate(-15.81deg);
 	font-size: 16px;
 	color: #555555;
-	width: 182px;
-	left: 300px;
-	top: -70px
+	max-width: 182px;
+	z-index: 5;
+}
+
+
+@media(max-width: 1200px){
+	.wrapper{
+		max-width: 940px;
+	}
+	.content__image-text-block{
+		left: 90px;
+		top: -60px;
+	}
+	.content__image-text{
+		font-size: 14px;
+	}
+}
+@media(max-width: 992px){
+	.content__main{
+		flex-direction: column;
+		padding: 0; 
+		align-items: center;
+	}
+}
+@media (max-width: 720px) {
+	.header__logo{
+		font-size: 30px;
+		width: 180px
+	}
+	.user-block{
+		font-size: 30px;
+		width: 130
+	}
+	.btn-register{
+		border-radius: 10px;
+		height: 40px;
+		width: 140px;
+	}
+	.content__image{
+		width: 100%;
+	}
+	
+}
+@media (max-width: 540px) {
+	.content__title{
+		font-size: 70px;
+	}
 }
 

@@ -1,35 +1,26 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
-import { closeModal } from '../../Redux/Actions/modalAction';
-import { useSelector, useDispatch } from 'react-redux';
-import classNames from 'classnames';
+import './modal.css';
+import CastomToast from '../castomToast/CastomToast';
+import Spinner from '../Spinner';
 
+function ModalCocktail({ randomCocktail, isLoading }) {
 
-function Modal({ randomCocktail }) {
-
-	const { cocktail: { contentTitle, imgPath, instruction, ingredirntQuantity }, title } = randomCocktail;
-
-	const modalActive = useSelector(({ modalReducer }) => modalReducer.visible);
-	const dispatch = useDispatch();
-
-	const handleCloseModal = () => {
-		dispatch(closeModal())
-	}
+	const { contentTitle, imgPath, instruction, ingredirntQuantity } = randomCocktail;
 
 	return (
-		<div className={classNames('modal', { active: modalActive })} onClick={handleCloseModal}>
-			<div className={classNames('modal__form', { active: modalActive })} onClick={(event) => event.stopPropagation()}>
-				<div className='modal__header'>
-					<div className='modal__title'>{title}</div>
-					<div className='modal__close' onClick={handleCloseModal}>
-						<FontAwesomeIcon icon={faTimes} />
-					</div>
-				</div>
+		<>{
+			isLoading ?
+				<div className="modal-spiner">
+					<Spinner />
+				</div> :
 				<div className="modal__content-scroll">
 					<div className='modal__content'>
 						<div className='modal__content-favorite' >
 							<FontAwesomeIcon icon={faStar} size="2x" color="#1B5E20" />
+						</div>
+						<div className="toast">
+							<CastomToast title={"Save to Liked"} component="modal" />
 						</div>
 						<div className='modal__content-title'>{contentTitle}</div>
 						<div className='modal__content-image'>
@@ -61,10 +52,12 @@ function Modal({ randomCocktail }) {
 						</div>
 					</div>
 				</div>
-
-			</div>
-		</div >
+		}
+		</>
 	);
 }
 
-export default Modal;
+export default ModalCocktail;
+
+
+

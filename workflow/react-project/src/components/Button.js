@@ -1,6 +1,8 @@
-function Button({ action }) {
+import classNames from 'classnames';
+
+function Button({ btnSignin, children, type }) {
 	return (
-		<button className='btn-register'>{action}</button>
+		<button type={type} className={classNames('btn-register', { 'btn-signin': btnSignin })}>{children}</button>
 	);
 }
 export default Button;

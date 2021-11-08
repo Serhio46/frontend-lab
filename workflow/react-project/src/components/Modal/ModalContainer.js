@@ -1,14 +1,16 @@
-import "./modal.css";
 import { useEffect } from "react";
-import Modal from './Modal';
+import Modal from './ModalCocktail';
+import ModalSignIn from '../Modal/ModalSignIn';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { loadRandomCocktail } from '../../Redux/Actions/randomCocktailAction';
+import ModalLayout from './ModalLayout';
 
 
 function ModalContainer() {
 
-	const randomCocktail = useSelector(({ randomCocktailReducer }) => randomCocktailReducer);
+	const { isLoading, cocktail: randomCocktail } = useSelector(({ randomCocktailReducer }) => randomCocktailReducer);
+	const { auth } = useSelector(({ modalReducer }) => modalReducer);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -16,7 +18,7 @@ function ModalContainer() {
 	}, [dispatch]);
 
 	return (
-		<Modal randomCocktail={randomCocktail} />
+		<ModalLayout title={auth ? 'Authentication' : 'Random Coctail'}>{auth ? <ModalSignIn /> : <Modal isLoading={isLoading} randomCocktail={randomCocktail} />}</ModalLayout>
 	);
 }
 
